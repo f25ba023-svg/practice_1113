@@ -33,3 +33,31 @@ AとEは全体に関わるので、後ほど話し合います。
 
 ## 実行方法
 （あとで書く。例：index.html をブラウザで開く）
+
+
+
+# score.js の使い方
+    HTMLで自分のJSより前に <script src="score.js"></script> を読み込んでください。
+    ゲーム終了時に saveScore("ゲーム名", スコア) を呼ぶと保存されます（ハイスコア更新なら true が返ります）。
+    ハイスコアの表示は getHighScore("ゲーム名") です。
+    ゲーム名は janken / number / reflex でやってください。
+
+自分のJSより先にいれるやつ！
+```
+<script src="score.js"></script>
+<script src="janken.js"></script>
+
+```
+
+ゲーム終わりに入れるやつ
+```
+// ゲーム終了時
+const isNew = saveScore("janken", 5);   // 5連勝を保存
+if (isNew) {
+  alert("ハイスコア更新！");
+}
+
+// 画面にハイスコアを表示したいとき
+const best = getHighScore("janken");    // 記録がなければ null
+
+```
