@@ -47,7 +47,7 @@ function startRound() {
   waitTimer = setTimeout(() => {
     state = "ready";
     readyAt = performance.now();
-    setResult("今だ！クリック！", "ready");
+    setResult("今だ！クリック", "ready");
   }, delay);
 }
 
