@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>じゃんけん・ミニゲーム集</title>
+
+  <!-- 全体のデザイン（担当E）。できたら自動で反映されます -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- メニュー画面だけの最低限の見た目（style.css ができたら消してもOK） -->
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      background: #f5f7fb;
+      margin: 0;
+      padding: 24px 16px;
+    }
+    .menu-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      max-width: 360px;
+      margin: 24px auto;
+    }
+    .menu-button {
+      display: block;
+      padding: 16px;
+      border-radius: 12px;
+      background: #ffffff;
+      border: 2px solid #4a7bd0;
+      color: #333;
+      text-decoration: none;
+      font-size: 1.2rem;
+    }
+    .menu-button:hover {
+      background: #4a7bd0;
+      color: #ffffff;
+    }
+    .menu-button .best {
+      display: block;
+      font-size: 0.85rem;
+      margin-top: 6px;
+      opacity: 0.8;
+    }
+  </style>
+</head>
+<body>
+  <h1>じゃんけん・ミニゲーム集 ✊✌️✋</h1>
+  <p>あそびたいゲームをえらんでね！</p>
+
+  <nav class="menu-list">
+    <a class="menu-button" href="janken.html">
+      ✊ じゃんけん
+      <span class="best" id="best-janken"></span>
+    </a>
+    <a class="menu-button" href="number.html">
+      🔢 数当てゲーム
+      <span class="best" id="best-number"></span>
+    </a>
+    <a class="menu-button" href="reflex.html">
+      ⚡ 反射神経ゲーム
+      <span class="best" id="best-reflex"></span>
+    </a>
+  </nav>
+
+  <!-- ハイスコアの保存・取得（担当E） -->
+  <script src="score.js"></script>
+  <script>
+    // ゲームごとのハイスコアの単位
+    const games = [
+      { name: "janken", unit: "連勝" },
+      { name: "number", unit: "回" },
+      { name: "reflex", unit: "ms" },
+    ];
+
+    // メニューにハイスコアを表示する
+    games.forEach(function (game) {
+      const best = getHighScore(game.name);
+      const text = best === null ? "まだ記録なし" : best + " " + game.unit;
+      document.getElementById("best-" + game.name).textContent = "ハイスコア：" + text;
+    });
+  </script>
+</body>
+</html>
