@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>じゃんけん</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      background: #f5f7fb;
+      margin: 0;
+      padding: 24px 16px;
+    }
+    .game {
+      max-width: 420px;
+      margin: 24px auto;
+      padding: 24px 16px;
+      border-radius: 16px;
+      background: #ffffff;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    }
+    .choices {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin: 20px 0;
+    }
+    .choice-button,
+    .reset-button,
+    .menu-button {
+      border: 2px solid #4a7bd0;
+      border-radius: 10px;
+      background: #ffffff;
+      color: #333;
+      cursor: pointer;
+      font-size: 1.1rem;
+    }
+    .choice-button {
+      width: 105px;
+      height: 70px;
+    }
+    .choice-button:hover,
+    .reset-button:hover,
+    .menu-button:hover {
+      background: #4a7bd0;
+      color: #ffffff;
+    }
+    .result {
+      min-height: 72px;
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+    .stats {
+      margin: 12px 0 20px;
+    }
+    .reset-button,
+    .menu-button {
+      display: inline-block;
+      padding: 10px 16px;
+      margin: 4px;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <main class="game">
+    <h1>じゃんけん ✊✌️✋</h1>
+    <p>どれをだす？</p>
+
+    <div class="choices" aria-label="じゃんけんの手">
+      <button class="choice-button" type="button" data-choice="rock">✊ グー</button>
+      <button class="choice-button" type="button" data-choice="scissors">✌️ チョキ</button>
+      <button class="choice-button" type="button" data-choice="paper">✋ パー</button>
+    </div>
+
+    <p class="result" id="result" aria-live="polite">勝負しよう！</p>
+    <div class="stats">
+      <p>連勝：<span id="streak">0</span></p>
+      <p>ハイスコア：<span id="high-score">まだ記録なし</span></p>
+    </div>
+
+    <button class="reset-button" id="reset-game" type="button">リセット</button>
+    <a class="menu-button" href="index.html">メニューへ</a>
+  </main>
+
+  <script src="score.js"></script>
+  <script src="jaken.js"></script>
+</body>
+</html>
